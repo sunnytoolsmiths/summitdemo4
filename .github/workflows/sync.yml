@@ -16,7 +16,7 @@ jobs:
           deck-version: 1.14.0
       - name: Generate declarative configuration with inso
         run: |
-          inso generate config feedback --tags feedback > kong.yaml
+          inso generate config spc_0a9e07894a6541d385085fa90d9311e4 --tags feedback > kong.yaml
       - name: Run decK sync
         run: |
           deck sync --konnect-token ${{ secrets.KONNECT_PAT }} --select-tag feedback --konnect-runtime-group-name default

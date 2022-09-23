@@ -1,4 +1,4 @@
-ame: Konnect Sync
+name: Konnect Sync
 on:
   push:
     branches:

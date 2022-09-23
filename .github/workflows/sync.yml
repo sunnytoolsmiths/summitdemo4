@@ -19,4 +19,4 @@ jobs:
           inso generate config feedback --tags feedback > kong.yaml
       - name: Run decK sync
         run: |
-          deck sync --konnect-token ${{ secrets.KONNECT_PAT }} --select-tag feedback --konnect-runtime-group-name delete-me-later
+          deck sync --konnect-token ${{ secrets.KONNECT_PAT }} --select-tag feedback --konnect-runtime-group-name default

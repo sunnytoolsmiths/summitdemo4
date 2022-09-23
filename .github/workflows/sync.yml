@@ -1,0 +1,22 @@
+ame: Konnect Sync
+on:
+  push:
+    branches:
+      - master
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: kong/setup-inso@v1
+        with:
+          inso-version: 3.5.0
+      - uses: kong/setup-deck@v1
+        with:
+          deck-version: 1.14.0
+      - name: Generate declarative configuration with inso
+        run: |
+          inso generate config feedback --tags feedback > kong.yaml
+      - name: Run decK sync
+        run: |
+          deck sync --konnect-token ${{ secrets.KONNECT_PAT }} --select-tag feedback --konnect-runtime-group-name delete-me-later
